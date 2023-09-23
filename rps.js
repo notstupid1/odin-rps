@@ -37,6 +37,7 @@ function playGame(player_choice){
     let comp_choice = getComputerChoice();
 
     score = playRound(comp_choice, player_choice);
+    
     if (score === 1) {++player_win; win_status = "You Win!";}
     if (score === -1) {++comp_win; win_status = "You Lose!"}
     if (score === 0) {win_status = "Tie"};
@@ -55,6 +56,7 @@ function playGame(player_choice){
         else final_score.textContent = "It's a Tie!";
     }
 }
+
 let max_times = 5;
 let times = 0;
 let player_win = 0;
@@ -68,6 +70,7 @@ let list = document.querySelector('#list');
 let hNumCount = document.querySelector('#human-num');
 let cNumCount = document.querySelector('#comp-num');
 let final_score = document.querySelector('#final-score');
+
 rock.addEventListener("click", 
         () => {let player_choice = "Rock"; 
         (player_win < max_times || comp_win < max_times) ? playGame(player_choice) : null;});
