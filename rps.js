@@ -29,27 +29,33 @@ function playRound (comp_choice, player_choice) {
 
 function playGame(player_choice){
 
-    if (times > 5) {
-        return;
-    }
+    let list_item = [];
 
     let score;
+    let win_status = "";
 
     let comp_choice = getComputerChoice();
 
     score = playRound(comp_choice, player_choice);
-    if (score === 1) ++player_win;
-    if (score === -1) ++comp_win;
-    if (score === 0) console.log("Tie");
+    if (score === 1) {++player_win; win_status = "You Win!";}
+    if (score === -1) {++comp_win; win_status = "You Lose!"}
+    if (score === 0) {win_status = "Tie"};
+
+    list_item[times] = document.createElement('li');
+    list_item[times].textContent = win_status;
+    list.appendChild(list_item[times]);
 
     times++;
-    console.log(score);
-    console.log(player_win, comp_win);
+    hNumCount.textContent = player_win;
+    cNumCount.textContent = comp_win;
 
-    if (player_win > comp_win) return "You Win!";
-    else if (player_win === comp_win) return "Tie!";
-    else return "You Lose!";
+    if (player_win >= max_times || comp_win >= max_times) {
+        if (player_win > comp_win) final_score.textContent = "You Won!";
+        else if (player_win < comp_win) final_score.textContent = "You Lose!";
+        else final_score.textContent = "It's a Tie!";
+    }
 }
+let max_times = 5;
 let times = 0;
 let player_win = 0;
 let comp_win = 0;
@@ -58,6 +64,16 @@ const rock = document.querySelector('#rock');
 const paper = document.querySelector('#paper');
 const scissor = document.querySelector('#scissor');
 
-rock.addEventListener("click", () => {let player_choice = "Rock"; playGame(player_choice)});
-paper.addEventListener("click", () => {let player_choice = "Paper"; playGame(player_choice)});
-scissor.addEventListener("click", () => {let player_choice = "Scissor"; playGame(player_choice)});
+let list = document.querySelector('#list');
+let hNumCount = document.querySelector('#human-num');
+let cNumCount = document.querySelector('#comp-num');
+let final_score = document.querySelector('#final-score');
+rock.addEventListener("click", 
+        () => {let player_choice = "Rock"; 
+        (player_win < max_times || comp_win < max_times) ? playGame(player_choice) : null;});
+paper.addEventListener("click", 
+        () => {let player_choice = "Paper"; 
+        (player_win < max_times || comp_win < max_times) ? playGame(player_choice) : null;});
+scissor.addEventListener("click", 
+        () => {let player_choice = "Scissor"; 
+        (player_win < max_times || comp_win < max_times) ? playGame(player_choice) : null;});
