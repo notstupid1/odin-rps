@@ -37,7 +37,7 @@ function playGame(player_choice){
     let comp_choice = getComputerChoice();
 
     score = playRound(comp_choice, player_choice);
-    
+
     if (score === 1) {++player_win; win_status = "You Win!";}
     if (score === -1) {++comp_win; win_status = "You Lose!"}
     if (score === 0) {win_status = "Tie"};
@@ -73,10 +73,10 @@ let final_score = document.querySelector('#final-score');
 
 rock.addEventListener("click", 
         () => {let player_choice = "Rock"; 
-        (player_win < max_times || comp_win < max_times) ? playGame(player_choice) : null;});
+        (player_win < max_times && comp_win < max_times) ? playGame(player_choice) : null;});
 paper.addEventListener("click", 
         () => {let player_choice = "Paper"; 
-        (player_win < max_times || comp_win < max_times) ? playGame(player_choice) : null;});
+        (player_win < max_times && comp_win < max_times) ? playGame(player_choice) : null;});
 scissor.addEventListener("click", 
         () => {let player_choice = "Scissor"; 
-        (player_win < max_times || comp_win < max_times) ? playGame(player_choice) : null;});
+        (player_win < max_times && comp_win < max_times) ? playGame(player_choice) : null;});

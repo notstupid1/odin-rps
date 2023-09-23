@@ -2,3 +2,83 @@
     margin: 0;
     box-sizing: border-box;
 }
+.input {
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    padding: 100px;
+    gap: 100px;
+    background-color: rgb(3, 3, 80);
+}
+.input button {
+    display: block;
+    width: 120px;
+    height: 120px;
+    border: none;
+    border-radius: 24px;
+    background-color: rgb(64, 64, 209);
+    color: white;
+    font-size: 32px;
+}
+.input button:hover {
+    background-color: hsl(221, 78%, 45%);
+}
+.score-container {
+    display: flex;
+    justify-content: center;
+    background-color: cornflowerblue;
+    margin: auto;
+}
+.score-container {
+    display: flex;
+}
+.score-container #seprator {
+    height: auto;
+    width: 2px;
+    background-color: white;
+}
+.score-container .output-list {
+    margin: 24px 0px 24px 24px;
+    display: flex;
+    flex: 1;
+}
+.score-container .score-view {
+    margin: 24px 24px 24px 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 48px;
+    flex: 1;
+}
+.score-container .score-view .comp-score,
+.score-container .score-view .human-score {
+    display: flex;
+    flex-direction: column;
+    background-color: burlywood;
+    border-radius: 24px;
+    padding: 8px;
+    padding-bottom: 24px;
+    gap: 4px;
+    align-items: center;
+}
+.score-container .score-view .comp-score #comp-num,
+.score-container .score-view .human-score #human-num {
+    height: 90px;
+    border-radius: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 48px;
+}
+
+.score-block {
+    display: flex;
+    margin: auto;
+    background-color: hsl(0, 2%, 10%);
+    justify-content: center;
+    align-items: center;
+}
+.score-block p {
+    font-size: 48px;
+    color: aliceblue;
+}
